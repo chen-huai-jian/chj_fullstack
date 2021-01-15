@@ -26,6 +26,17 @@ isShow true  false 没准备好。
         onShow 是否上架
         详情页    Swiper
 
+    - flex 怎么让元素下去
+    - 设计一下购物车？ 数组  某项商品  数量
+        首页   要加入购物车   加入|  改数量
+        购物车   展示出来   
+        详情页的时候，加入购物车，
+        关于购物车的数据是不是要超出页面化，来到？
+        比页面级别更大的是谁？
+
+        view|image  标签 ->  component -> page -> application
+        globalData  promiase  是否有重复的判断
+
 
 
 
