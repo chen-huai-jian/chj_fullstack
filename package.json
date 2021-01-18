@@ -1,16 +1,19 @@
 {
-  "name": "fetch_data",
+  "dependencies": {
+    "parcel": "^1.12.4"
+  },
+  "name": "workspace",
   "version": "1.0.0",
-  "description": "ES6 / 红宝书 / 你不知道的JavaScript  LeetCode\r     单线程的语言，数据通信相关的  vue/react  不学\r 1. npm init -y\r - promise  五星  异步\r -",
   "main": "index.js",
+  "devDependencies": {
+    "stylus": "^0.54.8"
+  },
   "scripts": {
-
-    "server:json":"json-server db.json"
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "json-server": "^0.16.3"
-  }
+  "description": ""
 }

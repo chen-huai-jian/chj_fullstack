@@ -1,54 +1,42 @@
-# js 常考考点
+# 开发工作流， 交给node 去做
 
-- 要加一个用户怎么办
+- 工作内容和工作流程是两码事 
+  - 轻量级的开发流程 
+  parcel
+  - 重量级的开发流程 
+  webpack  babel 
 
-    ES6 / 红宝书 / 你不知道的JavaScript  LeetCode
-    单线程的语言，数据通信相关的  vue/react  不学
-1. npm init -y
-2. npm i json-server
-    来个命令行，怎么 启动db.json成后台数据源？
-    http server    3000/users  db.json  做为数据源
-    提供出来访问  后台准备好了
-    http GET http://localhost:3000/uers     users[]
-    POST  保存表单  name -> http://localhost:3000/uers
-3. db.json  数据文件
-    json 是js前端和后端通信的数据文件
-- promise  五星  异步
+- live-server  http 静态服务 
+  stylus stylus 编译 
+  初级阶段的开发流程  -》 高级阶段
 
-- postman 可以用来做http访问代理
-    POST  那是再方便不过
+  多个命令行， 有点复杂， 统一起来呢？ 
 
-- 前端 + 后端
-    live-server   http 前端服务
-    json-server 后端数据  3000
-    前端和后端要数据通信 怎么做？
-    前端拉取后端的数据
+- 轻量级的前端开发流程套件 parcel
+ - node  做开发流程工具  npm init -y
+  npm i parcel  安装在当前项目下
+ - npm node package management 
+  yarn  facebook   npm i -g yarn
+- npm -i stylus --save-dev  为了开发阶段而安装 
+  -g  全局  不加的话， 当前的项目下， package.json 
+  npm i parcel  
 
-    get 3000   /users
-    post 3000 /users 
-
-- ajax 的表达一下
-    js最重要的考点 XMLHttpRequest
-    1. 是历史性的突破 ,带来前端主动请求数据的能力，微博Ajax应用
-        前端更主动， ajax + DOM  页面变得丰富，动态
-    2. http://localhost:3000/users  一切皆资源  Restfull
-        数据资源 GET path / users 请求动作 []
-        POST 新增的 / users {name : "王嘉新"}
-    3. XMLHttpRequest   ActiveXObject("Microsoft.XMLHTTP")
-        但是这叫浏览器的嗅探  if  else 
-        let httpRequest ;  http 协议  Request Response
-        - 创建好对象
-        - .open('GET','http://localhost:3000/users',true) 打开一个请求通道
-            .send()  这个请求真的就发送了
-            .onreadystatechange
-            XMLHttpRequest.Done 完成了
-            JSON.parse(httpRequest.responseText)   返回的数据
-            json 数组 -> html 数组 map `<li>${user.id} - ${user.name}</li> `).join('')
-                                        
-                                   
+- 现代开发工艺
+  parel  live-server + stylus + ... 全部包圆 
+  index.html 是入口文件  http 服务 1234
+  Built 编译  stylus  -> css 
+  .styl   devDependencies style.styl -> style.css
+  src / 开发目录 js
 
 
-                npm init -y
-                npm i json-server
-                npm run server:json   //运行端口
-                json-server --watch db.json
+
+
+    npm init -y
+    npm i -g yarn
+    yarn add parcel
+
+    npm run start
+
+
+
+
