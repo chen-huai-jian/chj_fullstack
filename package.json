@@ -1,19 +1,18 @@
 {
-  "dependencies": {
-    "parcel": "^1.12.4"
-  },
-  "name": "workspace",
+  "name": "big_data",
   "version": "1.0.0",
+  "description": "1. 10000条数据要展示？\r     html 不知道多少\r     scroll   1. 分页 pagination",
   "main": "index.js",
-  "devDependencies": {
-    "stylus": "^0.54.8"
-  },
   "scripts": {
-    "start": "parcel index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "parcel": "^1.12.4"
+  },
+  "devDependencies": {
+    "stylus": "^0.54.8"
+  }
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  console.log('event-loop'); // 1
+  setTimeout(() => {    // 宏任务
+    console.log('setTimeout1'); // 4
+    Promise.resolve().then(data => {
+      console.log(2222);  // 5
+    })
+  }, 0)
+  setTimeout( () => {     // 宏任务
+    console.log('setTimeout2'); // 6
+  },0);  
+  Promise.resolve().then(data => { // Promise  微任务 先于宏任务执行
+    console.log(1111); // 3
+  })
+  console.log('event-loop end'); //2
+  </script>
+</body>
+</html>
