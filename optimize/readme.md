@@ -30,9 +30,11 @@
         2. js  就是个第三者，浏览器逼出来的
             DOM 树 + css 渲染树 1. 快速的把静态页面显示出来 第一要务
             js 第二者   动态DOM  ajax
-            document.getElementById(' 巨大的开始
+            document.getElementById('')  巨大的开始
             js (语言世界) -> html + css DOM 树世界
             别的语言没有
+
+        3. 分屏加载html 制高点
 
 
 

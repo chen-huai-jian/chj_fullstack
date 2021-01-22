@@ -1,14 +1,19 @@
-const { Module } = require("webpack");
-
-// 与 parcel 的不同，配置繁琐
-// npm run build webpack --mode=development
-// 一定会去根目录下找到 webpack.config,js  配置文件
-// Module node 模块化  common.js   module.exports
-// import export es6    export  default 
+// 让大象跳舞
+// module 模块， node 内置的模块化机制 commonjs
+  // module.exports + require
+// es6   export default  import 
+// webpack 升级我们处理静态资源从传统小作坊 -> 企业级开发
 module.exports = {
-    entry: './main.js', // 入口
-    output: {  // 出口
-      filename: 'bundle.js'
+    entry: './src/main.js',
+    output: {
+      filename: '[name].js'
+    },
+    /* 每种类型的静态文件  代表某种资源，提供一种解决方案*/
+    module:{
+        rules:[{
+            test: /\.css$/ ,
+            use: ['style-loader', 'css-loader']
+        }]
     }
   }
   
