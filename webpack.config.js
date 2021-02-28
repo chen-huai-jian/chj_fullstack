@@ -1,19 +1,74 @@
-// 让大象跳舞
-// module 模块， node 内置的模块化机制 commonjs
-  // module.exports + require
-// es6   export default  import 
-// webpack 升级我们处理静态资源从传统小作坊 -> 企业级开发
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var webpack = require("webpack");
+var path = require("path");
+
+var basePath = __dirname;
+
 module.exports = {
-    entry: './src/main.js',
-    output: {
-      filename: '[name].js'
-    },
-    /* 每种类型的静态文件  代表某种资源，提供一种解决方案*/
-    module:{
-        rules:[{
-            test: /\.css$/ ,
-            use: ['style-loader', 'css-loader']
-        }]
-    }
-  }
-  
+  context: path.join(basePath, "src"),
+  resolve: {
+    extensions: [".js", ".ts", ".tsx", ".css"]
+  },
+  // entry: ["@babel/polyfill", "./index.tsx"],
+  entry: {
+    app: './index.tsx',
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router-dom'
+    ],
+    vendorStyles: [
+      '../node_modules/bootstrap/dist/css/bootstrap.css'
+    ]
+  },
+  output: {
+    path: path.join(basePath, "dist"),
+    filename: "[name].js"
+    // filename: "bundle.js"
+  },
+  devtool: "source-map",
+  devServer: {
+    contentBase: "./dist", // Content base
+    inline: true, // Enable watch and live reload
+    host: "localhost",
+    port: 8080,
+    stats: "errors-only"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: "awesome-typescript-loader",
+        options: {
+          useBabel: true,
+          babelCore: "@babel/core" // needed for Babel v7
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: "file-loader",
+        options: {
+          name: "assets/img/[name].[ext]?[hash]"
+        }
+      }
+    ]
+  },
+  plugins: [
+    //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin
+    new HtmlWebpackPlugin({
+      filename: "index.html", //Name of file in ./dist/
+      template: "index.html", //Name of template in ./src
+      hash: true
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+  ]
+};
