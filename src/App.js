@@ -1,16 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-// 引入 antd
-// import {Button} from 'antd';   // 组件库
-import Login from './Login';
-import Post from './Post';  // 新的页面   组件
+// import { Button } from 'antd';
+import TodoList from './TodoList';
 
 function App() {
   return (
     <div className="App">
-      <Post/>
-      {/* <Login /> */}
-      {/* <Button type="primary">Primary Button</Button> */}
+      <TodoList />
+      {/* <Button type="primary">点击</Button> */}
     </div>
   );
 }
