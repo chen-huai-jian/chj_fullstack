@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .droptarget{
+        float: left;
+        width: 200px;
+        height: 200px;
+        margin: 15px;
+        padding: 15px;
+        border: 1px solid red;
+    }
+    .txt{
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="droptarget">
+        <p draggable="true" id="dragtarget">拖动我!</p>
+    </div>
+    <div class="droptarget"></div>
+    <p id="demo"style="clear:both"></p>
+
+
+
+
+    <script>
+        //拖动时触发
+        document.addEventListener("dragstart",function(event){
+            event.dataTransfer.setData("Text",event.target.id);
+            document.getElementById('demo').innerHTML="开始拖动";
+        })
+        //正在拖动时,让下面字体变成红色
+        document.addEventListener("drag",function(event){
+            document.getElementById("demo").style.color="red";
+        })
+        //拖完输出
+        document.addEventListener("dragend",function(event){
+            document.getElementById("demo").innerHTML="拖动完成";
+        })
+        //进入droptarget,改变border
+        document.addEventListener("dragenter",function(event){
+            if(event.target.className == "droptarget"){
+                event.target.style.border = "3px dashed green";
+            }
+        })
+        // 阻止浏览器默认处理
+        document.addEventListener("dragover",function(event){
+            event.preventDefault();
+        })
+        //  dragleave   重置div-border
+        document.addEventListener("dragleave",function(event){
+            if(event.target.className == "droptarget"){
+                event.target.style.border = "";
+            }
+        })
+        // drop  复位p以及border
+        document.addEventListener("drop",function(event){
+            event.preventDefault();
+            if(event.target.className == "droptarget"){
+                document.getElementById("demo").style.color="";
+                event.target.style.border="";
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+            }
+        })
+
+
+    </script>
+</body>
+</html>
