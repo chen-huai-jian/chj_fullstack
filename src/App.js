@@ -1,14 +1,14 @@
-import './App.css';
-// import { Button } from 'antd';
-import TodoList from './TodoList';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <TodoList />
-      {/* <Button type="primary">点击</Button> */}
-    </div>
-  );
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                Hello World!
+            </div>
+        )
+    }
 }
 
 export default App;

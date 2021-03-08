@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+- react 入门学习
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. 父子传值
+    - 创建子组件，父组件引入
+    - 在父组件的jsx中引入组件，标签上写上属性
+    - 子组件的jsx中 this.props.属性 即传值成功
+2. 调用父组件的方法
+    - 父组件的标签上定义好  方法名字并绑定父组件中的方法  deleteItem={this.deleteItem.bind(this)}
+    - 子组件标签绑定好事件名  onClick={this.handleClick}
+    - 子组件方法中获取  this.props.deleteItem(this.props.index)
 
-## Available Scripts
+3. 单向数据流
+    - 父组件传递的数据， 子组件只能使用，不能修改
+    - 若要改变，就要调用父组件的方法来修改
 
-In the project directory, you can run:
+4. PropTypes 校验
+    - 子组件中进行
+    - 首先子组件import 引入下  import PropTypes from 'prop-types';
+    - 组件名.protypes = {传过来的所有数据类型}
+    - 注意小驼峰与大驼峰
+        - PropTypes.element 确保传递给组件中的children中只包含一个元素
+        - defaultProps 定义默认值
 
-### `yarn start`
+5. ref 
+    - 操作dom
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+6. 生命周期函数
+    - constructor 构造函数，是es6的语法，不是react 的
+    - componentWillMount  挂载虚拟dom之前，调用的
+    - render  组件挂载中  state 或 props 改变就会自动执行
+    - componentDidMount   组件挂载完成
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - shouldComponentUpdate  组件更新时，， 注意要返回一个布尔值才有效
+    - componentWillUpdate   
+    - componentDidUpdate  
+    
+    - 子组件才有用
+    - componentWillReceiveProps  组件第一次存在于DOm 中，函数是不会被执行的，存在于dom 中，才会被执行
+    - componentWillUnmount  组件将要被删除
