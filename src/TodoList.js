@@ -1,75 +1,52 @@
 import React, { Component } from 'react';
-import datas from './data';
-import { Layout } from 'antd'; // 布局 header + main + footer
-import './TodoList.css'
-import DataList from './components/DataList';
-import Form from './components/Form';
-const { Header, Content } = Layout
+import 'antd/dist/antd.css'
+import { Input, Button, List } from 'antd'
+import store from './store'
 
-// warning  这种写法是老写法
-// 类式组件被 react-hooks 替代了  函数式编程
 class TodoList extends Component {
     constructor(props) {
-        super(props)
-        this.state = {
-            list: []
+        super(props);
+        this.state = store.getState()
+        this.changeInputValue=this.changeInputValue.bind(this)
+        this.storeChange = this.storeChange.bind(this)
+        store.subscribe(this.storeChange)
+        
+    }
+    render() { 
+        return ( 
+            <div style={{ margin: '10px' }}>
+                <div>
+                    <Input
+                        placeholder={this.state.inputValue}
+                        style={{ margin: '10px', width: '250px' }}
+                        onChange={this.changeInputValue}
+                    />
+                    <Button type="primary" >
+                        增加
+                    </Button>
+                </div>
+                <div style={{margin:'10px', width:"300px"}}>
+                    <List 
+                        bordered
+                        dataSource={this.state.list}
+                        renderItem={item => <List.Item>{item}</List.Item>}
+                    />
+                </div>
+            </div>
+         );
+    }
+
+    changeInputValue(e){
+        // console.log(e.target.value);
+        const action = {
+            type:'changeInput',
+            value:e.target.value
         }
+        store.dispatch(action)
     }
-    // 数据驱动的页面
-    //生命周期  react-hooks    name, setName = useState('defaultName')  useEffect
-    // ? 
-    componentDidMount() {
-        this.setState({
-            list: datas
-        })
-    }
-    // redux 解决这个问题
-    deleteItem(id) {
-        // console.log(id)
-        let deleteIndex = datas.findIndex(item => {
-            return item.id === id
-        })
-        datas.splice(deleteIndex, 1)
-        this.setState({
-            list: datas
-        })
-    }
-
-    changeItem(id) {
-        let changeIndex = datas.findIndex(item => {
-            return item.id === id
-        })
-        datas[changeIndex].isComplete = !datas[changeIndex].isComplete
-        this.setState({
-            list: datas
-        })
-    }
-
-    handleSearchItem(value){
-        let newList = datas.filter( item=> {
-            return item.content.indexOf(value) !== -1
-        })
-        this.setState({
-            list: newList
-        })
-    }
-
-    render() {
-        return (
-            <Layout className="todolist-layout">
-                <Header>
-                    {/* this.pros.children */}
-                    <h3 className="logo">TodoList</h3>
-                </Header>
-                <Content className="todolist-content">
-                    <Form searchItem={value => this.handleSearchItem(value)} />
-                    <DataList list={this.state.list}
-                        changeItem={id => this.changeItem(id)}
-                        deleteItem={id => this.deleteItem(id)} />
-                </Content>
-            </Layout>
-        )
+    storeChange(){
+        this.setState(store.getState())
     }
 }
-
+ 
 export default TodoList;
