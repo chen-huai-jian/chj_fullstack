@@ -1,21 +1,45 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import Index from './Pages/Index'
-import List from './Pages/List'
+import Video from './Pages/Video'
+import Workplace from './Pages/Workplace'
+import './index.css'
 
-// 设置规则  传递值  接收值  显示内容
+function AppRouter() {
+    let routeConfig = [
+        { path: '/', title: '博客首页', exact: true, component: Index },
+        { path: '/video/', title: '视频教程', exact: false, component: Video },
+        { path: '/Workplace/', title: '职场技能', exact: false, component: Workplace }
+    ]
 
-
-
-function AppRouter(){
     return (
         <Router>
-            <ul>
-                <li><Link to='/'>首页</Link> </li>
-                <li><Link to='/list/123'>列表</Link> </li>
-            </ul>
-            <Route path='/' exact component={Index} />    {/* exact 精确匹配 */}
-            <Route path='/list/:id' component={List} />
+            <div className="mainDiv">
+                <div className="leftNav">
+                    <h3>一级导航</h3>
+                    <ul>
+                        {
+                            routeConfig.map((item, index) => {
+                                return (
+                                    <li key={index}><Link to={item.path} >{item.title}</Link></li>
+                                )
+                            })
+                        }
+
+                    </ul>
+                </div>
+                <div className="rightmain">
+                        {
+                            routeConfig.map((item,index) =>{
+                                return (
+                                    <Route key={index} path={item.path} exact={item.exact} component={item.component} />
+                                )
+                            
+                            })
+                        }
+                </div>
+
+            </div>
         </Router>
     )
 }
