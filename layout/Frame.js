@@ -1,0 +1,19 @@
+import React from 'react';
+import { Layout } from 'antd'; // container
+import '../assets/style/layout.css';
+const { Content } = Layout;
+
+export default function frame (props) {
+   return (
+      <div>
+         <Layout className="layout">
+            <Layout>
+               <Content className="content">
+                  {props.children}
+               </Content>
+            </Layout>
+         </Layout>
+      </div>
+   )
+}
+

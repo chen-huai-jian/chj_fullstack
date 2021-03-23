@@ -1,15 +1,19 @@
-const koa = require('koa')
-const mount = require('koa-mount')
-const serve=require('koa-static')  // 将static所有的静态资源调用, 不需要一个一个映入url
-//静态文件static ->cdn 静态服务器 
-const fs =require('fs')
-const app = new koa();
-app.use(serve(__dirname + '/images'));
-app.use(serve(__dirname + '/static/'));
-console.log(__dirname+'/static/');
-app.use(
-    mount('/',ctx =>{
-       ctx.body = fs.readFileSync(__dirname + '/max_count.html', 'utf-8');
-    })
-)
-app.listen(1234)
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import 'antd/dist/antd.css';
+import './data'; // 在根上引入mockjs模块  
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
