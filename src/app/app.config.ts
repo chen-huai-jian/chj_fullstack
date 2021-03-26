@@ -1,13 +1,14 @@
 import dotenv from 'dotenv';
-dotenv.config();
 
-// SET PORT = 1234 && node  app.js  cross-env();
+dotenv.config();
 console.log(process.env);
-export const { APP_PORT,
+
+// nginx  
+export const { APP_PORT } = process.env;
+export const {
    MYSQL_HOST,
-   MYSQL_USER,
    MYSQL_PORT,
+   MYSQL_USER,
    MYSQL_PASSWORD,
-   MYSQL_DATABASE,
-} = process.env; // ？
-   
+   MYSQL_DATABASE
+} = process.env

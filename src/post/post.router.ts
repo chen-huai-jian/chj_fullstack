@@ -1,8 +1,19 @@
-import express from 'express'  // es 6
+// 文章模板的路由， 
+import express from 'express';
 import * as postController from './post.controller';
-const router = express.Router(); // 得到一个路由实例
-//restful  某文章
-// 模块化  只负责定义路由 ， 
-router.get('/posts/:postId', postController.show); 
+import { authGard } from '../auth/auth.middleware'
+const router = express.Router(); 
+// GET 获得 
+
+/**
+ * 创建内容
+ */  
+// 检查有没有登录   next 
+router.post('/posts', authGard ,postController.store)
+
+/**
+ * 获取文章列表
+ */
+// router.get('/posts')
 
 export default router;
