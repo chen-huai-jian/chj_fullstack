@@ -1,17 +1,18 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "es6",
-        "moduleResolution": "node",
-        "declaration": false,
-        "noImplicitAny": false,
-        "jsx": "react",
-        "sourceMap": true,
-        "noLib": false,
-        "suppressImplicitAnyIndexErrors": true
-    },
-    "compileOnSave": false,
-    "exclude": [
-        "node_modules"
-    ]
+   "compilerOptions": {
+      "module": "commonjs",
+      "declaration": true,
+      "removeComments": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "target": "es2017",
+      "sourceMap": true,
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "incremental": true
+   },
+   "include": ["src/**/*", "types"],
+   "exclude": ["node_modules", "dist"]
 }
