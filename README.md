@@ -1,25 +1,14 @@
-- umijs  阿里当家开发框架
-  antd 组件库
+- 数据传递有哪些方案
+   1. reducer 复杂
+   2. props 手续多
+   
 
-- 约定优先
-  pages 
-  .umirc.ts 配置
+- createContext reducer 的异同  
+   createContext createStore 
+   createContext.Provider  createStore.Provider
+   value                            store
+   useContext  架构细致 
 
-- 自动生成代码
-  yarn add @umijs/preset-ui -D
-  .umirc.ts {
-    dva:{},
-    antd:{}
-  }
-  .env
-  UMI_UI=1
+useInfo  我们的用户信息 
+1. useEffect -> dispatch action {changeUseInfo , playload} -> api -> 163 music api
 
-- 未来是很多人一起做开发,
-  可能使用同样的类名， 再类名后产生一个随机数
-
-
-
-
-npx @umijs/create-umi-app
-yarn
-yarn add @umijs/preset-ui -D
