@@ -1,14 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import Cart from './cart';
-
-
-function App() {
-  return (
-    <div className="App">
-      <Cart />
-    </div>
-  );
+import { Provider } from 'react-redux'
+import store from './store/index'
+import Login from './pages/User/Login'
+function App () {
+   return (
+      <Provider store={store}>
+         store is work
+          <Login/>
+      </Provider>
+   )  
 }
 
-export default App;
+export default App
