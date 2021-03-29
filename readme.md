@@ -1,11 +1,56 @@
-// promise 题目
-const delay = (ms) => new Promise( (resolve)=>{
-   setTimeout(resolve,msg)
-})
+-  全栈 node + ts
+   BATJTMD GO
+- 数据库  
+   端口通信  3306-》 3000
+   node fs http  比较复杂  慢 
 
-1. 递归的高级套路
-   数组的长度判断  + shift 操作
-   run  只要调用一个API 就可以
-   区分  flow 跟普通函数、delay 标记isFlow:true 
-   slice  
-   falt  
+- MVC
+   数据库 -> modle  ->  Controller -> Router(API) 
+   post  
+   someone -> http -> req(url) -> router -> controller -> Model -> mysql2(mysql的驱动，相当于翻译官)
+
+
+
+- posts add 
+   controller -> restful  路径
+   mysql  post /posts
+   - router 在哪里？ 迎宾  
+   - controller  
+   - model  service  彩礼
+
+- 单点入口 
+
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+- mysql 先建表 在操作  关系型数据库   sql
+   mongodb 先上车   后补票  NOSQL  json  
+
+
+- user 业务
+   1. user.router.ts 入口 post  /register
+   2. user.controller.ts  用户名和密码不为空， 这是绝对不能存的， 会带来数据库的问题， 用户端 管理  数据库 
+   3. user.service.ts  存数据 
+   4. user.middleware.ts    检测是否有存在的用户名？  注册功能 
+      POST /register  checkIsNameExist next() register 
+
+
+
+
+
+   npm init -y
+   yarn add typescript tsc-watch
+   yarn add express @type/express
+
+   "dev": "tsc-watch --onSuccess \"node dist/main.js\""
+
+   安装 dotenv  .env 文件为了安全，不会上传到github上 , 应用的配置文件 
+
+
+
+   yarn add bcrypt
+   进行密码加密

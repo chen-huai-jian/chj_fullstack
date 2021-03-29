@@ -1,15 +1,22 @@
 {
-  "name": "my_promise",
+  "name": "maven",
   "version": "1.0.0",
-  "description": "// promise 题目\r const delay = (ms) => new Promise( (resolve)=>{\r    setTimeout(resolve,msg)\r })",
-  "main": "1.js",
+  "description": "-  全栈 node + ts\r    BATJTMD GO\r - 数据库  \r    端口通信  3306-》 3000\r    node fs http  比较复杂  慢",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc-watch --onSuccess \"node dist/main.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "@types/express": "^4.17.11",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.2.3"
   }
 }

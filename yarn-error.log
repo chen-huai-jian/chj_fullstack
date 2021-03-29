@@ -5,13 +5,13 @@ PATH:
   MongoDB\bin;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\110\Tools\Binn\;C:\program\110\Tools\Binn\;C:\program\110\DTS\Binn\;C:\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\110\DTS\Binn\;Git\cmd;BaiduNetdiskDownload\;E:\nvm\nvm;E:\nvm\nodejs;E:\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;D:\Tools\WinNT;D:\MSDev98\Bin;D:\Tools;D:\VC98\bin;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\Users\ASUS\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ASUS\AppData\Roaming\npm;E:\nvm\nvm;E:\nvm\nodejs
 
 Yarn version: 
-  1.22.10
+  1.22.10  
 
 Node version: 
   15.10.0
 
 Platform: 
-  win32 x64
+  win32 x64 
 
 Trace: 
   Error: https://registry.npm.taobao.org/body-aprser: Not found
