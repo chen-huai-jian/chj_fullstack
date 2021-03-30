@@ -1,14 +1,11 @@
-- 数据传递有哪些方案
-   1. reducer 复杂
-   2. props 手续多
-   
+# 从零开始开发react项目
+   1. 单页手机应用， 路由接管一切。
+      1.1 react-router-config
+      1.2 建好目录
+         /routes/index.js 数组
+      1.3 父子路由 ， 父子组件 render  当前路由/当前组件带来动态加载效果
 
-- createContext reducer 的异同  
-   createContext createStore 
-   createContext.Provider  createStore.Provider
-   value                            store
-   useContext  架构细致 
-
-useInfo  我们的用户信息 
-1. useEffect -> dispatch action {changeUseInfo , playload} -> api -> 163 music api
-
+   2. Home layout 
+      2.1 头部静态界面， styled-component 提供了样式组件容器
+         界面开发  html(props.children) + css(代码) 功能设计
+      2.2 原生支持嵌套 、 变量、函数 stylus 
