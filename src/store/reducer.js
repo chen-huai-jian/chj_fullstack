@@ -1,7 +1,5 @@
-import { combineReducers } from 'redux-immutable'; //不可变的状态
-import { reducer as userReducer } from '../pages/User/Login/store';
-// import { reducer as rankReducer } from '../pages/Rank/store';
+import { combineReducers } from 'redux-immutable';
+
 export default combineReducers({
-   user: userReducer,
-   // rank: rankReducer
+// 之后开发具体功能模块的时候添加reducer
 });
