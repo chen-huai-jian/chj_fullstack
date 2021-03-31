@@ -1,11 +1,13 @@
-# 从零开始开发react项目
-   1. 单页手机应用， 路由接管一切。
-      1.1 react-router-config
-      1.2 建好目录
-         /routes/index.js 数组
-      1.3 父子路由 ， 父子组件 render  当前路由/当前组件带来动态加载效果
+# 首页react实战， 可学之处
 
-   2. Home layout 
-      2.1 头部静态界面， styled-component 提供了样式组件容器
-         界面开发  html(props.children) + css(代码) 功能设计
-      2.2 原生支持嵌套 、 变量、函数 stylus 
+- loading 组件打造过程
+   页面状态， 要在列表(空/ API 后有)， 加一个loading状态
+   1. reducer 中加一个enterLoading true
+      action CHANGE_ENTER_LOADING
+   2. 请求列表时，改成false 
+
+   3. loading使用styled-component + animation-delay 打造方法
+   4. ？：显示与不显示
+
+   - 列表的打造
+      1. 数据源
