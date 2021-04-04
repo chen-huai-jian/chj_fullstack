@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import 'antd/dist/antd.css';
-import './data'; // 在根上引入mockjs模块  
-import reportWebVitals from './reportWebVitals';
+var http = require('http');
+http
+   .createServer(function (req, res) {
+      // req url  callback=?
+      console.log(req.url);
+      let data = { a: 1 };
+      res.writeHead(200, { 'Content-type': 'text/json' });
+      const reg = /callback=([\w]+)/;
+      if (reg.test(req.url)) {
+         let padding = RegExp.$1;
+         res.end(`${padding}(${JSON.stringify(data)})`);
+      } else {
+         res.end(JSON.stringify(data));
+      }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+      //  res.end('<p>Hello World</p>');
+      // res.end(JSON.stringify(data));
+   })
+   .listen(3000);
