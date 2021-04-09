@@ -1,20 +1,25 @@
-# 跨域 
-   - 后端的跨域解决方案
-   - JSONP json with padding
-      https://photo.sina.cn/aj/index?page=1&cate=recommend
-      同源机制 你不可以跨域
+restful 的替代品
+来自于 facebook 良心出品的查询方案 2015 年
 
+json-server
+缺点？
+基于 restful 的概念， 一切皆资源
+url + action
+db.json 资源中心
+./results list 请求到了
 
+数据库里， 还是 db.json 一起被查出来， select \*
+多好多我们不要的数据， select name， sex from user
+基础上， 设计了 graphql 查询设计语言
 
-   1. 通过script  src 跨域  向sina 发出请求  http
-      规避了js代码xhr   fetch 同源机制限制
-      JSON  JS  代码能够使用 
-   2. &callback = callback  //paddiing
-      sina在页面上有一个callback的函数等待你的地调用  
-      ；callback({"data":[{"a":}]})
-   3. callback({})  JSON + padding 
+1.  你要什么，设计查询方案，就得到什么
+2.  合并传统后端在那些数据的时候要连 n 张表进行查询，一次就够了
 
-   xhr/fetch  因运行在沙箱中的js同源机制 无法请求跨域sina 资源
-   迂回到使用script标签 src属性 有跨域  资源的能力  http请求中带上&callback=callback 这个padding,
-   sina 服务器就在json数据外面包一层callback函数，将这个带有padding的，可以在script得到后运行的函数，
-   页面已准备好了这个函数，从而效果一样。 
+- 启动 graphql
+  1.  express
+  2.  加入 graphql 中间件， 每次查询 graphql 都会介入
+      graphqlHTTP playload
+  3.  schema hero + rootValue
+      就有了
+  4.  graphql 可以省去很多的请求浪费
+  5.  前端可以自己决定用那些字段
