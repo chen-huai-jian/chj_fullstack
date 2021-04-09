@@ -1,14 +1,13 @@
-var express = require('express');
-var cors = require('cors'); // 后端cors 中间件
-
+const express = require('express');
 const app = express();
-// app.use(cors());
-app.get('/product', (req, res) => {
-   res.json({
-      a: 1,
-      b:2,
-   })
-})
-app.listen(8000, () => {
-   console.log('server is OK');
-});
+const graphqlHTTP = require('express-graphql').graphqlHTTP;
+// const username = require('./graphql/user/schema');
+// app.use(
+//   'graphql',
+//   graphHTTP({
+//     schema: username,
+//     graphql: true,
+//   })
+// );
+// 数据从mysql 来 ， 前端-> graphql->MVC->数据库
+app.listen(1514);
