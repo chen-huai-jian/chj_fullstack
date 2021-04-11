@@ -1,11 +1,21 @@
+import { createStore } from 'vuex'
 
-import { createStore, compose, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducer from './reducer';
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export default createStore({
+  state: {
+    count: 0,
+    
+  },
+  mutations: { // 放更改状态的函数
+    addCount (state) {
+      state.count++;
+    }
+  },
+  actions: { 
+    actionAddCount (ctx) { // ctx 代指上下文 vuex
+      ctx.commit('addCount');  // 提交mutations里面的方法
+    }
+  },
+  modules: {
 
-const store = createStore(reducer, composeEnhancers(
-  applyMiddleware(thunk)
-));
-
-export default store;
+  }
+})
