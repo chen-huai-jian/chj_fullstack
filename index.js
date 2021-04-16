@@ -1,19 +1,31 @@
-var http = require('http');
-http
-   .createServer(function (req, res) {
-      // req url  callback=?
-      console.log(req.url);
-      let data = { a: 1 };
-      res.writeHead(200, { 'Content-type': 'text/json' });
-      const reg = /callback=([\w]+)/;
-      if (reg.test(req.url)) {
-         let padding = RegExp.$1;
-         res.end(`${padding}(${JSON.stringify(data)})`);
-      } else {
-         res.end(JSON.stringify(data));
-      }
+const Koa = require('./lib/application')
+const app = new Koa()
 
-      //  res.end('<p>Hello World</p>');
-      // res.end(JSON.stringify(data));
-   })
-   .listen(3000);
+app.use((ctx) => { // ctx
+  console.log(ctx.req.url);
+  console.log(ctx.request.req.url);
+  console.log(ctx.response.req.url);
+
+  console.log(ctx.request.url); // ctx.req.url
+  console.log(ctx.request.path);
+  console.log(ctx.url);
+  console.log(ctx.path);
+})
+
+app.listen(3000, () => {
+  console.log('服务启动了');
+})
+
+
+// let http = require('http')
+
+// let server = http.createServer((req, res) => {
+//   res.end('Hello Jak')
+// })
+
+// server.listen(4000)
+
+//  var test = () => {
+//   console.log(123);
+// }
+
