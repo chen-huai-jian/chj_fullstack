@@ -1,33 +1,14 @@
-// 引用类型
-//               基本数据类型      引用数据类型(Array Function object )
-// 存储的元素        值              地址（指针）
-//  存储的地点        栈              堆
 
-
-let a1 = 1, b1 = a1;
-  
-  b1 = 2;
-console.log(a1);
-
-const  a = []
-const b = a;
-b.push(1);
-console.log(a);
-
-function test(person) { // 引用
-  person.age = 26;
-  
-  person = { // person 不再是p1 引用类型 const person 常量 找地址的时候 不找了, 重新分配地址
-    name: 'yyy',
-    age: 30
-  }
-  return person
+const { h } = require('snabbdom')
+// 返回VNode 比html字符串有什么好处？
+{/* <div id="app"></div> 前端才生成组件  蜘蛛是拿不到内容的 */}
+// 性能 
+// HTML VNode 内存 对象 ssr 放进服务器端渲染  React Native App 开发成为可能  
+// 只渲染成html 的话只是前端   返回的是虚拟节点的话，就扩大了服务端的能力，会提升SEO，Virtual DOM 可以做各种开发， 
+const MyComponent = props => {
+  return h('h1', props.title, [
+    h('span', {style: {fontWeight: 'bold'}}, 'This is blod')
+  ]) 
 }
 
-const p1 = {
-  name: 'yck',
-  age: 25
-}
-const p2 = test(p1)
-console.log(p1)  // age = 21, 
-console.log(p2) // 30 yyy
+console.log(MyComponent({ title:'hello'}));

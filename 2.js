@@ -1,12 +1,9 @@
-//bigint
-// 高精度的时间戳， MYSQL id 大数据
-const theBiggestInt = 9007199254740991n; 
-// console.log(typeof theBiggestInt);
-const alsoHuge = BigInt(9007199254740991);
+// 模块 -> 组件 
 
-const b1 = BigInt(Number.MAX_SAFE_INTEGER);
-console.log(b1);
-console.log(BigInt(Number.MIN_SAFE_INTEGER));
-
-const maxPlusOne = b1 + 1n;
-console.log(maxPlusOne);
+const MyComponent = props => {
+  const compiler =
+    MyComponent.cache ||
+    (MyComponent.cache = template('<h1><%= title %></h1>'));
+  return compiler(props);
+};
+MyComponent.cache = null;
